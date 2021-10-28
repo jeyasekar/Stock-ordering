@@ -9,17 +9,21 @@ import { OrderDatabaseModule } from 'src/infrastructure/database/order/order-dat
 import { OrderController } from './order.controller';
 import { ConfigService } from 'src/infrastructure/configuration/config.service';
 import { WinstonLoggerModule } from 'src/infrastructure/logger/winston.logger.module';
+import { MasterNosql } from 'src/core-domain/entities/order/master.nosql.entity';
+import FetchMasternosqlAdapter from 'src/core-domain/application-service/order/fetch-ordernosql.service';
 
 @Module({
     imports: [
         WinstonLoggerModule.forRoot({ level: ConfigService.create().getLogLevel()}),
         HttpModule,
         OrderDatabaseModule,
-        TypeOrmModule.forFeature([Orders])
+        TypeOrmModule.forFeature([Orders,MasterNosql])
     ],
     controllers: [OrderController],
     providers: [
         FetchOrderService,
+        
+       FetchMasternosqlAdapter,
         {
             provide: OrderSettingConstants.ORDER_SERVICE,
             useClass: OrderRepository

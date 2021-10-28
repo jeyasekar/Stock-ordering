@@ -1,15 +1,17 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { IOrderRepository } from "src/domain/ports/order.repository";
+import { IOrderPort } from "src/domain/ports/order.port";
 import { OrderMapper } from "src/infrastructure/mapper/order/order.mapper";
 import { Repository } from "typeorm";
 import { Optional } from "typescript-optional";
 import { Orders } from "src/core-domain/entities/order/order.entity";
 import { OrderModel } from "src/core-domain/models/order/order.model";
+import { MasterNosql } from "src/core-domain/entities/order/master.nosql.entity";
 
 @Injectable()
-export class OrderRepository implements IOrderRepository {
-    constructor(@InjectRepository(Orders) private OrderRepository: Repository<Orders>) {
+export class OrderRepository implements IOrderPort {
+    constructor(@InjectRepository(Orders) private OrderRepository: Repository<Orders>,
+    @InjectRepository(MasterNosql) private masterNoSqlRepository: Repository<MasterNosql>) {
         console.log('OrderRepository created')
     }
     async fetchOrders(): Promise<OrderModel[]> {
@@ -18,5 +20,11 @@ export class OrderRepository implements IOrderRepository {
     }
     async addOrder(order: OrderModel): Promise<OrderModel> {
         throw new Error("Method not implemented.");
+    }
+    async fetchOrderNoSql(): Promise<OrderModel[]> {
+        console.log('allb4')
+        const allMaster = await this.masterNoSqlRepository.find()
+        console.log('all++++',allMaster)
+        return null;
     }
 }
