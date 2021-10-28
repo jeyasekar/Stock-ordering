@@ -77,5 +77,10 @@ export class ConfigService {
     public getBaseURl(key: string){
          return this.getValue(key, true)
     }
+
+    public getLogLevel():string {
+        const level = this.getValue('ORDER_LOG_LEVEL', false)
+        return level
+    }
     
 }
