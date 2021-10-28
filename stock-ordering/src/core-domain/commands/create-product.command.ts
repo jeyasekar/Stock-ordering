@@ -1,0 +1,33 @@
+export class CreateProductCommand {
+    productName: string;
+    description: string;
+    price: number;
+    imageUrl: string;
+    releaseDate: string;
+    likes: number;
+}
+
+/*
+import { IsNumber, IsString } from "class-validator";
+
+export class CreateProductCommand {
+    @IsString()
+    productName: string;
+
+    @IsString()
+    description: string;
+
+    @IsNumber({
+        allowInfinity: false,
+        allowNaN: false,
+        maxDecimalPlaces: 2
+    })
+    price: number;
+
+    @IsString()
+    imageUrl: string;
+
+    @IsString()
+    releaseDate: string;
+}
+*/
