@@ -7,7 +7,7 @@ import { OrderSettingConstants } from "src/infrastructure/constants/order/order-
 
 @Injectable()
 export default class FetchOrderService implements IBaseService<number, OrderModel> {
-    constructor(@Inject(OrderSettingConstants.PRODUCTS_SERVICE) private orderRepoPort: IOrderRepository) {
+    constructor(@Inject(OrderSettingConstants.ORDER_SERVICE) private orderRepoPort: IOrderRepository) {
         console.log('FetchProductsAdapter created')
     }
     handle(): Promise<OrderModel[]> {

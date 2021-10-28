@@ -30,7 +30,7 @@ export class ConfigService {
         return value
     }
     public getTypeOrmConfig(): TypeOrmModuleOptions {
-        const dbType = this.getValue(OrderSettingConstants.PRODUCTS_DATABASE_TYPE)
+        const dbType = this.getValue(OrderSettingConstants.ORDER_DATABASE_TYPE)
         let type1: DatabaseType = 'sqlite';
         switch (dbType) {
             case 'postgres':
@@ -46,17 +46,17 @@ export class ConfigService {
 
         const options: TypeOrmModuleOptions = {
             type: type1,
-            host: this.getValue(OrderSettingConstants.PRODUCTS_POSTGRES_HOST),
-            port: parseInt(this.getValue(OrderSettingConstants.PRODUCTS_POSTGRES_PORT)),
-            username: this.getValue(OrderSettingConstants.PRODUCTS_POSTGRES_USERNAME),
-            password: this.getValue(OrderSettingConstants.PRODUCTS_POSTGRES_PASSWORD),
-            database: this.getValue(OrderSettingConstants.PRODUCTS_POSTGRES_DATABASE),
-            entities: [this.getValue(OrderSettingConstants.PRODUCTS_ENTITIES_PATH)],
-            migrationsTableName: this.getValue(OrderSettingConstants.PRODUCTS_MIGRATION_TABLE_NAME),
-            migrations: [this.getValue(OrderSettingConstants.PRODUCTS_MIGRATIONS_FILE_PATH)],
+            host: this.getValue(OrderSettingConstants.ORDER_POSTGRES_HOST),
+            port: parseInt(this.getValue(OrderSettingConstants.ORDER_POSTGRES_PORT)),
+            username: this.getValue(OrderSettingConstants.ORDER_POSTGRES_USERNAME),
+            password: this.getValue(OrderSettingConstants.ORDER_POSTGRES_PASSWORD),
+            database: this.getValue(OrderSettingConstants.ORDER_POSTGRES_DATABASE),
+            entities: [this.getValue(OrderSettingConstants.ORDER_ENTITIES_PATH)],
+            migrationsTableName: this.getValue(OrderSettingConstants.ORDER_MIGRATION_TABLE_NAME),
+            migrations: [this.getValue(OrderSettingConstants.ORDER_MIGRATIONS_FILE_PATH)],
             synchronize: true,
             cli: {
-                migrationsDir: this.getValue(OrderSettingConstants.PRODUCTS_MIGRATIONS_DIRECTORY)
+                migrationsDir: this.getValue(OrderSettingConstants.ORDER_MIGRATIONS_DIRECTORY)
             }
         }
         console.log(options)

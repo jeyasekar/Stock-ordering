@@ -10,15 +10,15 @@ import { OrderSettingConstants } from 'src/infrastructure/constants/order/order-
                 .create()
                 .ensureValues(
                     [
-                        OrderSettingConstants.PRODUCTS_POSTGRES_HOST,
-                        OrderSettingConstants.PRODUCTS_POSTGRES_PORT,
-                        OrderSettingConstants.PRODUCTS_POSTGRES_USERNAME,
-                        OrderSettingConstants.PRODUCTS_POSTGRES_PASSWORD,
-                        OrderSettingConstants.PRODUCTS_POSTGRES_DATABASE,
-                        OrderSettingConstants.PRODUCTS_ENTITIES_PATH,
-                        OrderSettingConstants.PRODUCTS_MIGRATION_TABLE_NAME,
-                        OrderSettingConstants.PRODUCTS_MIGRATIONS_FILE_PATH,
-                        OrderSettingConstants.PRODUCTS_MIGRATIONS_DIRECTORY
+                        OrderSettingConstants.ORDER_POSTGRES_HOST,
+                        OrderSettingConstants.ORDER_POSTGRES_PORT,
+                        OrderSettingConstants.ORDER_POSTGRES_USERNAME,
+                        OrderSettingConstants.ORDER_POSTGRES_PASSWORD,
+                        OrderSettingConstants.ORDER_POSTGRES_DATABASE,
+                        OrderSettingConstants.ORDER_ENTITIES_PATH,
+                        OrderSettingConstants.ORDER_MIGRATION_TABLE_NAME,
+                        OrderSettingConstants.ORDER_MIGRATIONS_FILE_PATH,
+                        OrderSettingConstants.ORDER_MIGRATIONS_DIRECTORY
                     ]
                 )
                 .getTypeOrmConfig(),

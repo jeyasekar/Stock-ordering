@@ -18,7 +18,7 @@ import { OrderController } from './order.controller';
     providers: [
         FetchOrderService,
         {
-            provide: OrderSettingConstants.PRODUCTS_SERVICE,
+            provide: OrderSettingConstants.ORDER_SERVICE,
             useClass: OrderRepository
         },
         //HttpClient
