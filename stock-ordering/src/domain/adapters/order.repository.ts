@@ -7,7 +7,9 @@ import { Optional } from "typescript-optional";
 import { Orders } from "src/core-domain/entities/order/order.entity";
 import { OrderModel } from "src/core-domain/models/order/order.model";
 import { MasterNosql } from "src/core-domain/entities/order/master.nosql.entity";
-
+/**
+ * 
+ */
 @Injectable()
 export class OrderRepository implements IOrderPort {
     constructor(@InjectRepository(Orders) private OrderRepository: Repository<Orders>,
@@ -18,9 +20,17 @@ export class OrderRepository implements IOrderPort {
         const allOrders = await this.OrderRepository.find()
         return OrderMapper.toDomains(allOrders)
     }
+    /**
+     * Add Order method will persist Order details in DB
+     * @param order type of OrderModel
+     */
     async addOrder(order: OrderModel): Promise<OrderModel> {
         throw new Error("Method not implemented.");
     }
+    /**
+     * 
+     * @returns key value pair Shop Info
+     */
     async fetchOrderNoSql(): Promise<OrderModel[]> {
         console.log('allb4')
         const allMaster = await this.masterNoSqlRepository.find()

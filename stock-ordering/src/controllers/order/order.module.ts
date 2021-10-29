@@ -11,9 +11,19 @@ import { ConfigService } from 'src/infrastructure/configuration/config.service';
 import { WinstonLoggerModule } from 'src/infrastructure/logger/winston.logger.module';
 import { MasterNosql } from 'src/core-domain/entities/order/master.nosql.entity';
 import FetchMasternosqlAdapter from 'src/core-domain/application-service/order/fetch-ordernosql.service';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
     imports: [
+        // ClientsModule.register([{
+        //     name: 'REDIS_SERVICE',
+        //     transport: Transport.REDIS,
+        //     options: {
+        //         url: '//redis-17939.c1.asia-northeast1-1.gce.cloud.redislabs.com:17939',
+        //         password: 'iY78kOVxQbAFTHYnBxEYNzIDmc9SUfIj'
+        //     },
+        // }]),
+
         WinstonLoggerModule.forRoot({ level: ConfigService.create().getLogLevel()}),
         HttpModule,
         OrderDatabaseModule,
