@@ -25,13 +25,13 @@ export class OrderController {
     }
 
     @Get('/nosql')
-    getMasterDataNoSql(){
+    getMasterDataNoSql() {
         console.log("nosql")
         console.log('Master service controller fetchMasterData method')
-        this.logger.info('in fetchMasterData info', { jey: 'sekar' });
-        this.logger.error('in fetchMasterData error', { jey: 'sekar' });
-        this.logger.debug('in fetchMasterData debug', { jey: 'sekar' });
-        this.logger.warn('in fetchMasterData warn', { jey: 'sekar' });
+        this.logger.info('in fetchMasterData info', { key: 'value' });
+        this.logger.error('in fetchMasterData error', { key: 'value' });
+        this.logger.debug('in fetchMasterData debug', { key: 'value' });
+        this.logger.warn('in fetchMasterData warn', { key: 'value' });
         return this.fetchnoSqlMasterAdapter.handle()
     }
 }
