@@ -12,6 +12,7 @@ export class OrderController {
         private logger: WinstonLoggerService,
         private fetchnoSqlMasterAdapter: FetchMasternosqlAdapter
     ) {
+        this.logger.setContext(OrderController.name);
         console.log('orders service controller created')
     }
 
