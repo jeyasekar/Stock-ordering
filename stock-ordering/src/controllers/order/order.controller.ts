@@ -31,7 +31,7 @@ export class OrderController {
         this.logger.info('in fetchMasterData info', { key: 'value' });
         this.logger.error('in fetchMasterData error', { key: 'value' });
         this.logger.debug('in fetchMasterData debug', { key: 'value' });
-        this.logger.warn('in fetchMasterData warn', { key: 'value' });
+        this.logger.warn('in fetchMasterData warn');
         return this.fetchnoSqlMasterAdapter.handle()
     }
 }
