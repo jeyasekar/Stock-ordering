@@ -27,6 +27,10 @@ export class OrderController {
     @Get('/nosql')
     getMasterDataNoSql() {
         console.log("nosql")
+        const obj=JSON.parse('["Order.View","Order.Create","KL.Kitchen.Goods"]')
+        console.log("obj[0] ->",obj[0])
+       // obj[0] -> Order.View
+       // console.log("onclick ->",obj.onclick)
         console.log('Master service controller fetchMasterData method')
         this.logger.info('in fetchMasterData info', { key: 'value' });
         this.logger.error('in fetchMasterData error', { key: 'value' });

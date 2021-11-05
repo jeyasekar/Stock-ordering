@@ -1,5 +1,5 @@
-import { Orders } from "src/core-domain/entities/order/order.entity"
-import { OrderModel } from "src/core-domain/models/order/order.model"
+import { Orders } from "..//..//..//core-domain/entities/order/order.entity"
+import { OrderModel } from "..//..//..//core-domain/models/order/order.model"
 import { Optional } from "typescript-optional"
 
 export class OrderMapper {
